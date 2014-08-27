@@ -27,6 +27,9 @@ See [examples/](https://github.com/thefactory/autoscale-python/tree/master/examp
 ## Examples
 
 ### mesos_ec2.py
+
+Scale a Mesos cluster on EC2 based on free disk, memory, and/or CPU. Best run as a cron job run once every N minutes, where N is the longest expected startup or shutdown time of a Mesos slave.
+
 ```console
 $ mesos_ec2.py --help
 usage: mesos_ec2.py [-h] [-l LOG_LEVEL] -u MESOS_URL [-c CPUS] [-d DISK]

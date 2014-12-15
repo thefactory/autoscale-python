@@ -13,11 +13,11 @@ class MesosReporter():
     def __init__(self, mesos_url):
         self.mesos_url = mesos_url.rstrip('/')
         stats_url = '/'.join([self.mesos_url, '/stats.json'])
-        self.state = requests.get(stats_url).json()
+        self._state = requests.get(stats_url).json()
 
     @property
     def state(self):
-        return self.state
+        return self._state
 
 
 class MesosDecider():
@@ -28,9 +28,9 @@ class MesosDecider():
         increment = 1
         decrement = -1
 
-        cpus_free = cluster.state['cpus_total'] - cluster.state['cpus_used']
-        disk_free = cluster.state['disk_total'] - cluster.state['disk_used']
-        mem_free = cluster.state['mem_total'] - cluster.state['mem_used']
+        cpus_free = cluster.state['master/cpus_total'] - cluster.state['master/cpus_used']
+        disk_free = cluster.state['master/disk_total'] - cluster.state['master/disk_used']
+        mem_free = cluster.state['master/mem_total'] - cluster.state['master/mem_used']
         logger.info('State: %s', dict(cpus_free=cpus_free, disk_free=disk_free, mem_free=mem_free))
         logger.info('Thresholds: %s', self.thresholds)
 

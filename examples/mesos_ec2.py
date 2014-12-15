@@ -38,10 +38,10 @@ def main():
     
     delta = decider.should_scale(reporter)
     if delta:
-        print 'Scaling {asg} in {region} by {delta}'.format(asg=args.asg, region=args.region, delta=delta)
+        print('Scaling {asg} in {region} by {delta}'.format(asg=args.asg, region=args.region, delta=delta))
         scaler.scale(delta)
     else:
-        print 'No change needed for {asg} in {region}'.format(asg=args.asg, region=args.region)
+        print('No change needed for {asg} in {region}'.format(asg=args.asg, region=args.region))
 
 
 if __name__ == '__main__':

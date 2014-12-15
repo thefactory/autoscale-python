@@ -13,11 +13,11 @@ class MesosReporter():
     def __init__(self, mesos_url):
         self.mesos_url = mesos_url.rstrip('/')
         stats_url = '/'.join([self.mesos_url, '/stats.json'])
-        self.state = requests.get(stats_url).json()
+        self._state = requests.get(stats_url).json()
 
     @property
     def state(self):
-        return self.state
+        return self._state
 
 
 class MesosDecider():

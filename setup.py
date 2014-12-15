@@ -6,7 +6,7 @@ if sys.version_info >= (3,):
     extra['use_2to3'] = True
 
 setup(name='autoscale',
-      version="0.0.1",
+      version="0.0.2",
       description='Extensible library to manage scaling logic and actions',
       author='Mike Babineau',
       author_email='michael.babineau@gmail.com',
